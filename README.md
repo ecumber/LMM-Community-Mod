@@ -1,4 +1,4 @@
-# lmm-hack
-## The hack where a bunch of lm haxors work on it at the same time
+# LMM Community Mod
+## This is a LMM Community hack where everyone can impliment their own mods on the hack.
 
 
