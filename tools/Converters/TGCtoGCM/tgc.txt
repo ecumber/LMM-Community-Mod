@@ -1,0 +1,27 @@
+0x00-0x03:	TGC identifier? (0xAE0F38A2)
+0x04-0x07:	?? 0x00000000
+0x08-0x0B:	TGC Header size? 0x00008000
+0x0C-0x0F:	?? 0x00100000
+0x10-0x13:	Real FST location (0x00108000) (offset from .tgc)
+0x14-0x17:	FST Size
+0x18-0x1B:	Max FST Size?
+0x1C-0x1F:	Real DOL location (offset from .tgc)
+0x20-0x23:	DOL Size
+0x24-0x27:	File Area Start (offset from .tgc)
+0x28-0x2B:	File Area Size
+0x2C-0x2F:	Banner location? (offset from .tgc) (not always set)
+0x30-0x33:	Banner size? (not always set)
+0x34-0x37:	FST Spoof amount
+The rest is Zero
+
+All values are 32-bit Big Endian.
+TGC's are miniaturized .gcm images with a 32kB header (described above).
+The embedded gcm contains some bogus data, namely:
+-FST Location (0x424 in gcm)
+-DOL Location (0x420 in gcm)
+-FST File offsets (all files are offset/spoofed by a certain amount)
+Subtracting the FST Spoof amount from the FST will give offsets from File Area Start
+
+Some of this document is (obviously) guesswork, so it may contain false and/or incomplete information
+
+Plootid 2004
